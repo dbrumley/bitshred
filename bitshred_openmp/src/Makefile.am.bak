@@ -1,0 +1,16 @@
+EXTRA_DIST = demo
+bin_PROGRAMS = bitshred
+bitshred_SOURCES = bitshred.c \
+                   vdb.h vdb.c \
+                   bincode.h bincode.c \
+                   bs_common.h bs_common.c \
+                   bs_types.h \
+                   fromclamav.h fromclamav.c \
+                   shred.h shred.c unpack.h unpack.c \
+	rebuildpe.h rebuildpe.c \
+	pe.h pe.c \
+	fsg.h fsg.c \
+                   jaccard.h jaccard.c 
+
+AM_CFLAGS = -I/usr/users/4/jjang/bitshred/src/include -Wall -O3 -g -fopenmp
+AM_LDFLAGS = -L/usr/users/4/jjang/bitshred/src/lib -lbfd -ldb -lopcodes -lm

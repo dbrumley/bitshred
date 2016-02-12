@@ -1,0 +1,24 @@
+#!/bin/csh
+#PBS -l ncpus=512
+#ncpus must be a multiple of 16
+#PBS -l walltime=2:00:00
+#PBS -j oe
+#PBS -q batch
+
+set echo
+
+ja 
+
+#lfs setstripe /bessemer/jjang/db -s 0 -c -1 -o -1
+#move to my $SCRATCH directory
+cd $SCRATCH
+
+#copy executable to $SCRATCH
+cp $HOME/bitshred/src/bitshred .
+
+#run my executable
+setenv OMP_NUM_THREADS $PBS_NCPUS
+omplace -nt $OMP_NUM_THREADS ./bitshred -e $SCRATCH/unpacked -w 12
+#omplace -nt $OMP_NUM_THREADS ./bitshred -u ~/test -w 12 --debug
+
+ja -chlst 

@@ -1,0 +1,90 @@
+BitShred-Coclustering-OpenMP Instruction
+========================================
+
+0. Parameters
+ - FP_SIZE              : size of a fingerprint (in bytes), hard-coded in 'bs_common.h'
+ - shredsize            : size of a shred (in bytes), -s option
+ - windowsize           : winnowing parameter, -w option
+ - row_max_threads      : # of threads for row iterations, -a option
+ - col_max_threads      : # of threads for column iterations, -b option
+ - INNER_COST_THRESHOLD : inner loop condition, hard-coded in 'bs_common.h'
+ - OUTER_COST_THRESHOLD : outer loop condition, hard-coded in 'bs_common.h' 
+                          (e.g., 1.0 is good for accuracy, but may take more time)
+
+
+1. To run co-clustering on malware samples:
+ $ ./bitshred -m <sample_path> -r <init_#_row_grps> -c <init_#_col_grps> 
+             [-d <db_path> -o <output_log> -a <#_row_threads> -b <#_col_threads> 
+              -s <shred_size> -w <winnowing_param>]
+
+ *[] denotes optional parameters
+
+ -Input:
+  a path to malware samples: all samples in sub-directories are processed.
+  initial # of row groups
+  initial # of column groups
+ -Output:
+  <output.log> specified by -o option or <stdout> : the full log of coclustering.
+  adjlist          : the adjacent list of samples (fingerprints).
+  global/g_w_x_y_z : the global matrix G.
+  global/r_w_x_y_z : the list of assigned row group number to each row (sample).
+  global/c_w_x_y_z : the list of assigned column group number to each column (bit).
+
+    w: outer iteration number / x: inner iteration number
+    y: # of row groups        / z: # of column groups
+
+ *Note:
+  In order to maximize the performance, 
+   # of samples = multiple of # of row max threads
+   FP_SIZE*8    = multiple of # of column max threads
+
+
+2. To run co-clustering on pre-built data:
+ $ ./bitshred -t <data_path> -r <init_#_row_grps> -c <init_#_col_grps> 
+             [-d <db_path> -o <output_log> -a <#_row_threads> -b <#_col_threads>]
+
+ *[] denotes optional parameters
+
+ -Input:
+  a path to pre-built data (adjacent list of samples)
+  initial # of row groups
+  initial # of column groups
+ -Output:
+  <output.log> specified by -o option or <stdout> : the full log of coclustering.
+  global/g_w_x_y_z : the global matrix G.
+  global/r_w_x_y_z : the list of assigned row group number to each row (sample).
+  global/c_w_x_y_z : the list of assigned column group number to each column (bit).
+
+    w: outer iteration number / x: inner iteration number
+    y: # of row groups        / z: # of column groups
+
+ *Note1:
+  In case of multiple data files, the file names should be in the form like
+   data0, data1, data2, ...
+ *Note2:
+  In order to maximize the performance, 
+   # of samples = multiple of # of row max threads
+   FP_SIZE*8    = multiple of # of column max threads
+
+
+3. To permute co-clustering results to place the dominant row group at the top:
+ $ ./bitshred -p w,x,y,z
+             [-d <db_path>]
+
+ *[] denotes optional parameters
+
+ -Input (comma-separated):
+  w: outer iteration number
+  x: inner iteration number
+  y: # of row groups
+  z: # of column groups
+ -Output:
+  global/r_w_x_y_z.new : the new permutation of row group number to each row (sample).
+  global/c_w_x_y_z.new : the new permutation of column group number to each column (bit).
+  global/adjlist.new.dominant : the new adjacent lists for the dominant group
+  global/adjlist.new.others   : the new adjacent lists for the other groups
+
+ *Note1:
+  The new adjacent lists can be moved to a different place, e.g., /db_1st_dominant/adjlist/.
+  Then co-clustering can be run on the dominant group and the other groups separately.
+

@@ -1,0 +1,37 @@
+BitShred-Coclustering Instruction
+=================================
+
+0. Most of the parameters are hard-coded in source code.
+ *CCGen.java, CCInit.java, CCRow.java, CCCol.java
+  - FP_SIZE    : size of a fingerprint (in bytes)
+  - SHRED_SIZE : size of a shred (in bytes)
+  - WINDOW_SIZE: size of a window (winnowing parameter)
+  - SAMPLE_PATH: path to malware samples in HDFS
+  - DATA_PATH  : path to fingerprints in HDFS
+  - GLOBAL_PATH: path to global values (r,c,G)
+
+ *run_cc.py:
+  - numSamples  : number of total samples
+  - numRowGroups: initial number of row groups
+  - numColGroups: initial number of column groups
+
+
+1. To generate input folders for map tasks:
+  (ex) $ ./gen_input.py logfile 2048 256
+
+2. To run co-clustering:
+  - 'input-ccgen', 'input-ccinit', 'input-ccrow', and 'input-cccol' (created at step 1) need to be copied to HDFS.
+  (ex) $ ./run_cc.py 2048 16 128
+
+3. Resulting files:
+  - 'result.log' contains the code length at each iteration with various number of row/column groups.
+    The minumum code length means the optimal co-clustering.
+  - 'adjlist' contains the adjacent list of samples (fingerprints).
+  - 'global/r_x_y_z' contains the list of assigned row group number to each row (sample).
+  - 'global/rnum_x_y_z' contains the number of row groups.
+  - 'global/c_x_y_z' contains the list of assigned column group number to each column (bit).
+  - 'global/cnum_x_y_z' contains the number of column groups.
+  - 'global/g_x_y_z' contains the matrix G.
+  - 'global/cost_x_y_z' contains the cost.
+    (x: initial number of row groups/ y: initial number of column groups/ z: number of iterations)
+

@@ -1,0 +1,13 @@
+0.1 (2011.05.12)
+----------------
+Diffrences from single/hadoop versions
+ - 'update' takes as an input a path to samples instead of a log file
+ - 'update' divides jobs into 'MAX_THREADS' threads (no need to run a scheduling script)
+ - 'update' does not require BerkeleyDB and BFD library (thread-safe)
+ - options specifying databases (-v,-j,-c) are merged into one option '-d'
+ - 'compare' divides jobs into 'MAX_THREADS' threads (no need to run a scheduling script)
+Limitations in scheduling (to utilize maximum capability)
+ - 'MAX_THREADS' must be set as 'nblocks = sqrt(MAX_THREADS*2)' becomes an integer
+   e.g., MAX_THREADS=8, nblocks=4
+ - the total number of samples must be mutiples of 'FP_PER_FILE*nblocks' 
+   e.g., nsamples=32768, FP_PER_FILE=2048, nblocks=4

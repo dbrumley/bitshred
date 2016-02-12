@@ -1,0 +1,6 @@
+Installation Instruction
+========================
+
+To compile into 'Gen.jar' and 'Cmp.jar', just run the following:
+ $ ./make.sh
+

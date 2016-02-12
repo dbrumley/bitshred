@@ -1,0 +1,8 @@
+Installation Instruction
+========================
+
+To complile into 'ClusterMap.jar', just run the following command:
+ $ ./make.sh
+
+ * 'prefuse.jar' needs to be in the same directory.
+

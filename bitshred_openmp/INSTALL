@@ -1,0 +1,7 @@
+Installation Instruction
+========================
+
+To build BitShred, just run the following:
+ $ ./configure
+ $ make
+

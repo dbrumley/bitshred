@@ -1,0 +1,67 @@
+0.9 (2012.08.08)
+----------------
+Changed options:
+ - '-u/--update' changed to '-b/--binary'
+ - '-i/--input' changed to '-t/--text'
+ - '-t/--threshold' changed to '-j/--jaccard'
+Changed bitshred_t struct
+Changed input format:
+ - '-b' and '-t' take as an input a file path
+
+
+0.81 (2012.05.02)
+----------------
+Modified -i option:
+ - prints a progress and safely ignores small size of files
+
+
+0.8 (2012.04.28)
+----------------
+Added -i option:
+ - takes text files as inputs
+
+
+0.7 (2012.04.11)
+----------------
+Added quality.py script:
+ - to measure precision/recall
+
+
+0.6 (2012.03.26)
+----------------
+Changed the Jaccard calculation:
+ - skipped counting setbits when bitwise-AND results in zero
+Changed the update routine:
+ - a file is not inserted into DB if a fingerprint is too dense
+
+
+0.5 (2011.11.04)
+----------------
+Small fixes
+
+
+0.4 (2011.05.11)
+----------------
+Changed the Jaccard calculation:
+ - pre-computed S(f_a) and S(f_b) at fingerprint generation
+ - performed bit-wise AND operation to calculate S(f_a \wedge f_b)
+ - calculated S(f_a \vee f_b) = S(f_a) + S(f_b) - S(f_a \wedge f_b)
+ - overall, removed bit-wise OR operation
+ - achieved significant performance improvement
+Changed the record structure of Berkeley DB
+ - added a field: nbits
+
+
+0.3 ()
+----------------
+
+0.2 (2010.10.16)
+----------------
+Added ClamAV unpacking routine
+Added demo directory
+ - used prefuse (http://prefuse.org/) for visualization
+
+
+0.1 ()
+------
+Initial distribution

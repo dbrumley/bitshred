@@ -1,0 +1,39 @@
+BitShred Instruction
+====================
+
+0. Parameter Setup
+ -The default database path           : DB_PATH in "bs_common.h"
+ -The default size of the fingerprint : FP_SIZE in "bs_common.h"
+ -The default shredsize               : SHRED_BIN, SHRED_TXT in "shred.h"
+ -The default winnowing parameter     : WINDOW_SIZE in "shred.h"
+ -The default clustering threshold    : JACCARD_THRESHOLD in "jaccard.h"
+
+
+1. To cluster samples:
+1.1. Parse binary files:
+ $ ./bitshred -b <input_path> [-t <threshold> -s <shred_size> -w <winnowing_param> -d <db_path>]
+
+1.2. Parse text files:
+ $ ./bitshred -x <input_path> [-t <threshold> -s <shred_size> -w <winnowing_param> -d <db_path>]
+
+ *[] means optional parameters
+
+ -Input:
+   input_path   : path where contains input files
+   threshold    : clustering threshold value in the range of 0--1
+ -Output:
+   vdb.db       : the virus db (in Berkeley db)
+   vdb_list.txt : the list of files inserted into the db
+   cdb_xxxx.txt : clustering result ("cid: vid_list")
+
+
+2. To measure precision and recall for the resulting cluster:
+   (quality.py is located under 'quality' directory.)
+ $ ./quality.py <ref_path> <cdb_path>
+
+ -Input:
+   ref_path : reference clustering in the same format as cdb
+   cdb_path : clustering result at the step #1
+ -Output:
+   precision and recall
+

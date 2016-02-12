@@ -1,0 +1,28 @@
+End-to-end system Demo Instruction
+==================================
+
+0. First, we need to preapre a log file. 
+ - For reference, there is 'sample.log' file in the same directory.
+ - Each line of log file should be in the following format:
+   'malware-file-path:virus-name:packer-name:'
+
+ * The reason we use log file is that we want to construct virus fingerprint
+   DB including other information such as virus name and packer name.
+
+
+1. To run the demo,
+    $ ./bitshred.py  log-file  #-of-samples  clustering-threshold
+
+  - log-file: path for log file metioned in 0.
+  - #-of-samples: the total number of samples we want to put into DB.
+         If this is '-1', BitShred will process whole list in the log file.
+  - clustering-threshold: 0 ~ 1 value
+
+
+2. BitShred will update DB, compare samples in DB, cluster samples in DB, and then
+   show a clustering graph at the end of the demo.
+
+  - If we want to see clustering graphs with different threshold value 
+    without updaing new malware samples:
+     $ ./bitshred.py  -  -  clustering-threshold
+

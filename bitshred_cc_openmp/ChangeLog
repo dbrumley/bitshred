@@ -1,0 +1,9 @@
+0.2 (2012.02.01)
+----------------
+Added ccpermute.c:
+ - permutes co-clustering results to place the dominant row group at the top
+   based upon area size and density of sub-matrix
+
+0.1 (2011.11.24)
+----------------
+Initial Release

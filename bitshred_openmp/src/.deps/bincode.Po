@@ -1,0 +1,128 @@
+bincode.o: bincode.c /usr/include/errno.h \
+ /usr/local/packages/gcc-4.4.3/lib/gcc/x86_64-unknown-linux-gnu/4.4.3/include-fixed/features.h \
+ /usr/include/sys/cdefs.h /usr/include/bits/wordsize.h \
+ /usr/include/gnu/stubs.h /usr/include/gnu/stubs-64.h \
+ /usr/include/bits/errno.h /usr/include/linux/errno.h \
+ /usr/include/asm/errno.h /usr/include/asm-generic/errno.h \
+ /usr/include/asm-generic/errno-base.h /usr/include/assert.h bincode.h \
+ /usr/include/stdio.h \
+ /usr/local/packages/gcc-4.4.3/lib/gcc/x86_64-unknown-linux-gnu/4.4.3/include/stddef.h \
+ /usr/include/bits/types.h /usr/include/bits/typesizes.h \
+ /usr/include/libio.h /usr/include/_G_config.h \
+ /usr/local/packages/gcc-4.4.3/lib/gcc/x86_64-unknown-linux-gnu/4.4.3/include-fixed/wchar.h \
+ /usr/include/bits/wchar.h \
+ /usr/local/packages/gcc-4.4.3/lib/gcc/x86_64-unknown-linux-gnu/4.4.3/include/stdarg.h \
+ /usr/include/bits/stdio_lim.h /usr/include/bits/sys_errlist.h \
+ /usr/include/bits/stdio.h /usr/include/stdlib.h /usr/include/sys/types.h \
+ /usr/include/time.h /usr/include/endian.h /usr/include/bits/endian.h \
+ /usr/include/bits/byteswap.h /usr/include/sys/select.h \
+ /usr/include/bits/select.h /usr/include/bits/sigset.h \
+ /usr/include/bits/time.h \
+ /usr/local/packages/gcc-4.4.3/lib/gcc/x86_64-unknown-linux-gnu/4.4.3/include-fixed/sys/sysmacros.h \
+ /usr/include/bits/pthreadtypes.h /usr/include/alloca.h \
+ /usr/include/string.h /usr/include/bits/string.h \
+ /usr/local/packages/gcc-4.4.3/lib/gcc/x86_64-unknown-linux-gnu/4.4.3/include-fixed/bits/string2.h \
+ /usr/users/4/jjang/bitshred/src/include/bfd.h \
+ /usr/users/4/jjang/bitshred/src/include/ansidecl.h \
+ /usr/users/4/jjang/bitshred/src/include/symcat.h \
+ /usr/users/4/jjang/bitshred/src/include/dis-asm.h \
+ /usr/users/4/jjang/bitshred/src/include/bfd.h /usr/include/stdint.h \
+ bs_common.h /usr/include/sys/time.h
+
+/usr/include/errno.h:
+
+/usr/local/packages/gcc-4.4.3/lib/gcc/x86_64-unknown-linux-gnu/4.4.3/include-fixed/features.h:
+
+/usr/include/sys/cdefs.h:
+
+/usr/include/bits/wordsize.h:
+
+/usr/include/gnu/stubs.h:
+
+/usr/include/gnu/stubs-64.h:
+
+/usr/include/bits/errno.h:
+
+/usr/include/linux/errno.h:
+
+/usr/include/asm/errno.h:
+
+/usr/include/asm-generic/errno.h:
+
+/usr/include/asm-generic/errno-base.h:
+
+/usr/include/assert.h:
+
+bincode.h:
+
+/usr/include/stdio.h:
+
+/usr/local/packages/gcc-4.4.3/lib/gcc/x86_64-unknown-linux-gnu/4.4.3/include/stddef.h:
+
+/usr/include/bits/types.h:
+
+/usr/include/bits/typesizes.h:
+
+/usr/include/libio.h:
+
+/usr/include/_G_config.h:
+
+/usr/local/packages/gcc-4.4.3/lib/gcc/x86_64-unknown-linux-gnu/4.4.3/include-fixed/wchar.h:
+
+/usr/include/bits/wchar.h:
+
+/usr/local/packages/gcc-4.4.3/lib/gcc/x86_64-unknown-linux-gnu/4.4.3/include/stdarg.h:
+
+/usr/include/bits/stdio_lim.h:
+
+/usr/include/bits/sys_errlist.h:
+
+/usr/include/bits/stdio.h:
+
+/usr/include/stdlib.h:
+
+/usr/include/sys/types.h:
+
+/usr/include/time.h:
+
+/usr/include/endian.h:
+
+/usr/include/bits/endian.h:
+
+/usr/include/bits/byteswap.h:
+
+/usr/include/sys/select.h:
+
+/usr/include/bits/select.h:
+
+/usr/include/bits/sigset.h:
+
+/usr/include/bits/time.h:
+
+/usr/local/packages/gcc-4.4.3/lib/gcc/x86_64-unknown-linux-gnu/4.4.3/include-fixed/sys/sysmacros.h:
+
+/usr/include/bits/pthreadtypes.h:
+
+/usr/include/alloca.h:
+
+/usr/include/string.h:
+
+/usr/include/bits/string.h:
+
+/usr/local/packages/gcc-4.4.3/lib/gcc/x86_64-unknown-linux-gnu/4.4.3/include-fixed/bits/string2.h:
+
+/usr/users/4/jjang/bitshred/src/include/bfd.h:
+
+/usr/users/4/jjang/bitshred/src/include/ansidecl.h:
+
+/usr/users/4/jjang/bitshred/src/include/symcat.h:
+
+/usr/users/4/jjang/bitshred/src/include/dis-asm.h:
+
+/usr/users/4/jjang/bitshred/src/include/bfd.h:
+
+/usr/include/stdint.h:
+
+bs_common.h:
+
+/usr/include/sys/time.h:

@@ -1,0 +1,25 @@
+Cluster-Map Instrunction
+========================
+
+0. ClusterMap is based on one example program in the prefuse.
+   (http://prefuse.org/)
+
+
+1. ClusterMap reads cluster data from 'cdb_tree.xml' file.
+ - The xml file can be created using 'cdb_tree' function in 'bitshred.py'.
+
+
+2. To run the program,
+    $ java -Xms32m -Xmx1024m -cp prefuse.jar:ClusterMap.jar ClusterMap
+
+  * -Xmx option is for setting maximum memory in case of big cluster data set.
+
+
+3. On cluster map,
+ - Each bright grey rectangle shows a malware family; 
+   and each dark grey rectangle represents a malware sample.
+ - When mouse is over a malware sample; corresponding file name and (ClamAV) label 
+   are displayed at bottom left side.
+ - At bottom right side, we have search box, which allows us to find and highlight
+   malware samples using file name or (ClamaV) label.
+

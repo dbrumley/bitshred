@@ -1,0 +1,11 @@
+Installation Instruction
+========================
+
+BerkeleyDB and GNU BFD library are required to install BitShred.
+On Debian or Ubuntu, you can get the required libraries by running:
+ $ sudo aptitude install libdb-dev binutils-dev
+
+To build BitShred, just run the following:
+ $ ./configure
+ $ make
+

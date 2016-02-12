@@ -1,0 +1,60 @@
+BitShred Instruction
+====================
+
+0. Parameter Setup
+ -The default size of the fingerprint : FP_SIZE in "bs_common.h"
+ -The default shredsize               : SHRED_SIZE in "shred.h"
+ -The default winnowing parameter     : WINDOW_SIZE in "shred.h"
+ -The default database path           : DB_PATH in "bitshred.c"
+
+
+1. To build virus db:
+1.1. Parse executable files:
+ $ ./bitshred -b <input_path> [-d <db_path> -s <shred_size> -w <winnowing_param>]
+
+1.2. Parse text files:
+ $ ./bitshred -t <input_path> [-d <db_path> -s <shred_size> -w <winnowing_param>]
+ 
+ *[] means optional parameters
+
+ -Input: 
+   input_path   : path where contains input files
+ -Output:
+   vdb          : the virus db (Berkeley db)
+   vdb_list.txt : the list of viruses inserted into the db
+   vdb_nvir.txt : the # of viruses in the db
+
+
+2. To compare every pair in the virus db:
+ $ ./bitshred -p [-d <db_path>]
+
+ -Input:
+   vdb : the virus db constructed at the step #1
+ -Output:
+   jdb : similarity for a pair of samples in the following format: "vid_a:vid_b:similarity:"
+
+
+3. To cluster viruses based on the calculated similarity:
+ $ ./bitshred -r [-d <db_path> -j <threshold>]
+
+ -Input:
+   jdb       : the jaccard db constructed at the step #2
+   threshold : the similarity threshold value for hierarchical clustering in the range of 0~1
+ -Output:
+   cdb       : clustering result in the following format: "cid:vid_list:cnt:"
+
+
+4. To measure precision and recall for the resulting cluster:
+   (quality.py is located under 'quality' directory.)
+ $ ./quality.py <ref_path> <cdb_path>
+
+ -Input:
+   ref_path : reference clustering in the same format as cdb
+   cdb_path : clustering result at the step #3
+ -Output:
+   precision and recall
+
+
+5. To view information for a specific virus in the virus db:
+ $ ./bitshred --vinfo <vid> [-d <db_path>]
+

@@ -1,0 +1,23 @@
+#!/bin/csh
+#PBS -l ncpus=16
+#ncpus must be a multiple of 16
+#PBS -l walltime=1:00:00
+#PBS -j oe
+#PBS -q batch
+
+set echo
+
+ja 
+
+#move to my $SCRATCH directory
+cd $SCRATCH
+
+#copy executable to $SCRATCH
+cp $HOME/bitshred/src/bitshred .
+
+#run my executable
+setenv OMP_NUM_THREADS $PBS_NCPUS
+#omplace -nt $OMP_NUM_THREADS ./bitshred -r -t 0.6
+dplace ./bitshred -r -t 0.8
+
+ja -chlst 

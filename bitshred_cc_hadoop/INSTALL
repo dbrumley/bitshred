@@ -1,0 +1,6 @@
+BitShred-Coclustering Installation Instruction
+==============================================
+
+To compile 'CCGen.java', 'CCInit.java', 'CCRow.java', and 'CCCol.java' into 'CC.jar', just run the following:
+ $ ./make.sh
+

@@ -1,0 +1,36 @@
+BitShred-OpenMP Instruction
+===========================
+
+0. The size of the fingerprint is defined in "bs_common.h" as "FP_SIZE".
+   The maximum number of threads is defined in "bs_common.h" as "MAX_THREADS".
+   If we do not specify a database path with -d options, BitShred uses a default path. 
+
+
+1. To build virus db:
+ $ ./bitshred -u <sample_path> -d <db_root_path> -l <limit> -s <shred_size>
+
+ BitShred takes a path to samples as an input to build virus db. 
+ (No log file is required.) All samples under the path will be processed.
+ "vdb_list" will contain the list of virus inserted into db.
+
+
+2. To compare every pair in virus db:
+ $ ./bitshred -p -d <db_root_path> -t <threshold>
+
+ BitShred reads all virus information from virus db and then measure similarity.
+ Similarity will be stored in jdb files in the following format: "vid_a:vid_b:similarity:".
+ Only the pair whose similarity is greater than or equal to the threshold is
+ recorded on the disk (to reduce I/O overhead).
+
+
+3. To cluster virus based on the calculated similarity:
+ $ ./bitshred -r -d <db_root_path> -t <threshold>
+
+ BitShred takes a threshold value and groups samples whose similarity is 
+ greater than the threshold. Results are stored in a cdb file.
+
+
+4. End-to-end system demo 
+ After installing BitShred, we can try to run end-to-end system demo.
+ Please refer to 'src/demo/README'.
+

@@ -1,0 +1,27 @@
+0.3 (2011.05.11)
+----------------
+Changed the Jaccard calculation:
+ - pre-computed S(f_a) and S(f_b) at fingerprint generation
+ - performed bit-wise AND operation to calculate S(f_a \wedge f_b)
+ - calculated S(f_a \vee f_b) = S(f_a) + S(f_b) - S(f_a \wedge f_b)
+ - overall, removed bit-wise OR operation
+ - achieved significant performance improvement
+Changed the algorithm for counting set bits in a bitvector
+ - achieved performnace improvement at the Jaccard calculation
+Changed byte array to int array to store fingerprints
+ - byte-based fingerprints from HDFS are converted into int-based fingerprints in memory
+ - brought speed-up at couting set bits, which works on 32-bit integer
+Divided jobs at each MAP node into smaller blocks
+ - better cache utilization
+Removed the use of DistributedCache
+ - reduced disk access overhead at start-up
+ - each MAP node needs to access a related subset of entire fingerprint files
+
+
+0.2 ()
+------
+
+
+0.1 ()
+------
+Initial distribution

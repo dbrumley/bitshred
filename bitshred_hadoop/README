@@ -1,0 +1,35 @@
+BitShred-Hadoop Instruction
+===========================
+
+0. Most of the parameters are hard-coded in source code.
+ * Gen.java:
+  - SAMPLE_PATH: path to malware sample in HDFS
+  - SHRED_SIZE: size of a shred
+  - BF_SIZE: size of a fingerprint (in bytes)
+  - DATA_PATH: path to fingerprints in HDFS
+  - BF_PER_FILE: number of fingerprints per a file
+  - windowSize: size of a window (Winnowing)
+
+ * Cmp.java:
+  - BF_SIZE: size of a fingerprint (in bytes)
+  - BF_PER_FILE: number of fingerprints per a file
+  - numBF: total number of fingerprints (or samples)
+
+
+1. To divide generating/comparing jobs to several map tasks:
+   (ex) $ ./input.py logfile 655360 2048 4
+
+
+2. To generate fingerprints for malware samples:
+  - 'input-gen' (created at step 1) needs to be copied to HDFS.
+  - 'run_gen.sh' script is included for a reference.
+  - 'Gen.jar' generates fingerprints for malware samples located at SAMPLE_PATH
+    into DATA_PATH.
+
+
+3. To compare fingerprints:
+  - 'input-cmp' (created at step 1) needs to be copied to HDFS.
+  - 'run_cmp.sh' script is included for a reference.
+  - 'Cmp.jar' compares fingerpints located at DATA_PATH and
+    produces a list of similarity values.
+

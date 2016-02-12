@@ -1,0 +1,4 @@
+0.1 (2013.01.24)
+----------------
+Merged steps into '-b/--binary' and '-x/--text' options:
+ - perform all 3 steps: fingerprint generation, comparison, and clustering

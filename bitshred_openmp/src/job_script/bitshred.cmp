@@ -1,0 +1,24 @@
+#!/bin/csh
+#PBS -l ncpus=512
+#PBS -l walltime=2:00:00
+#PBS -j oe
+#PBS -q batch
+
+set echo
+
+ja 
+
+#move to my $SCRATCH directory
+cd $SCRATCH
+
+#copy executable to $SCRATCH
+cp $HOME/bitshred/src/bitshred .
+
+#run my executable
+setenv MALLOC_TRIM_THRESHOLD_ -1
+setenv MALLOC_MMAP_MAX_ 0
+setenv OMP_NUM_THREADS $PBS_NCPUS
+#omplace -nt $OMP_NUM_THREADS ./bitshred -p
+dplace ./bitshred -p
+
+ja -chlst 
